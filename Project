@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lao Cuisto - Restaurant Authentique à Pointe-Noire</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Modal RGPD -->
+    <div class="modal fade" id="cookieModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header cookie-modal-header">
+                    <h5 class="modal-title"><i class="fas fa-cookie-bite me-2"></i>Gestion des cookies</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body cookie-modal-body">
+                    <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. Vous pouvez personnaliser vos préférences ci-dessous :</p>
+                    
+                    <div class="cookie-type">
+                        <div class="cookie-type-title">
+                            <i class="fas fa-lock"></i> Cookies essentiels
+                        </div>
+                        <div class="cookie-type-description">
+                            Ces cookies sont nécessaires au fonctionnement du site. Ils garantissent les fonctionnalités de base et la sécurité du site.
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-primary">Toujours activés</span>
+                            <label class="cookie-switch cookie-required">
+                                <input type="checkbox" checked disabled>
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="cookie-type">
+                        <div class="cookie-type-title">
+                            <i class="fas fa-chart-line"></i> Cookies d'analyse
+                        </div>
+                        <div class="cookie-type-description">
+                            Ces cookies nous permettent d'analyser l'utilisation du site pour améliorer nos services.
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-secondary">Optionnel</span>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="analyticsCookies">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="cookie-type">
+                        <div class="cookie-type-title">
+                            <i class="fas fa-bullhorn"></i> Cookies marketing
+                        </div>
+                        <div class="cookie-type-description">
+                            Ces cookies sont utilisés pour vous montrer des publicités pertinentes en fonction de vos intérêts.
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-secondary">Optionnel</span>
+                            <label class="cookie-switch">
+                                <input type="checkbox" id="marketingCookies">
+                                <span class="cookie-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" id="rejectAllCookies">Refuser tout</button>
+                    <button type="button" class="btn btn-primary" id="saveCookiePreferences">Enregistrer mes préférences</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-utensils me-2"></i>Lao Cuisto</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reservation">Réservation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#admin"><i class="fas fa-lock"></i> Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carrousel Hero -->
+    <section id="accueil" class="hero-section">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Poulet Braisé">
+                    <div class="carousel-caption">
+                        <h1>Bienvenue chez Lao Cuisto</h1>
+                        <p>Saveurs authentiques de Pointe-Noire</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Poisson Grillé">
+                    <div class="carousel-caption">
+                        <h1>Cuisine locale</h1>
+                        <p>Ingrédients frais, préparations traditionnelles</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Menu avec Filtres -->
+    <section id="menu" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Notre Menu</h2>
+            <div class="text-center mb-4">
+                <button class="btn btn-outline-primary filter-btn active" data-filter="all">Tous</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="entree">Entrées</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="principal">Plats Principaux</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="dessert">Desserts</button>
+            </div>
+            <div class="row">
+                <!-- Exemple de plat 1 -->
+                <div class="col-md-4 mb-4" data-category="entree">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" class="card-img-top menu-img" alt="Salade">
+                        <div class="card-body">
+                            <h5 class="card-title">Salade Tropicale</h5>
+                            <p class="card-text">Avocat, mangue et crevettes fraîches.</p>
+                            <span class="badge bg-success">8 000 XAF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Exemple de plat 2 -->
+                <div class="col-md-4 mb-4" data-category="principal">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" class="card-img-top menu-img" alt="Poulet Braisé">
+                        <div class="card-body">
+                            <h5 class="card-title">Poulet Braisé</h5>
+                            <p class="card-text">Servi avec plantain et piment maison.</p>
+                            <span class="badge bg-success">15 000 XAF</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Exemple de plat 3 -->
+                <div class="col-md-4 mb-4" data-category="dessert">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" class="card-img-top menu-img" alt="Dessert">
+                        <div class="card-body">
+                            <h5 class="card-title">Fruits Frais</h5>
+                            <p class="card-text">Ananas, papaye et mangue de saison.</p>
+                            <span class="badge bg-success">5 000 XAF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réservation -->
+    <section id="reservation" class="py-5 bg-light-custom">
+        <div class="container">
+            <h2 class="section-title">Réserver une table</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form id="reservationForm" class="p-4 shadow-sm bg-white rounded">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nom complet</label>
+                            <input type="text" class="form-control" id="reservationName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Téléphone</label>
+                            <input type="tel" class="form-control" id="reservationPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="reservationDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Heure</label>
+                            <input type="time" class="form-control" id="reservationTime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="guests" class="form-label">Nombre de personnes</label>
+                            <select class="form-select" id="reservationGuests" required>
+                                <option value="1">1 personne</option>
+                                <option value="2" selected>2 personnes</option>
+                                <option value="4">4 personnes</option>
+                                <option value="6">6+ personnes</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Confirmer la réservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title mb-5">Contactez-nous</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fas fa-map-marker-alt me-2"></i>Adresse</h3>
+                            <p>Mpita, Pointe-Noire, République du Congo</p>
+                            <h3 class="card-title mt-4"><i class="fas fa-phone me-2"></i>Téléphone</h3>
+                            <p><a href="tel:+242067147697" class="text-decoration-none">06 714 76 97</a></p>
+                            <h3 class="card-title mt-4"><i class="fas fa-clock me-2"></i>Horaires</h3>
+                            <p>Lundi - Dimanche: 11h00 - 22h00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Nous envoyer un message</h3>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="contactName" placeholder="Votre nom" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="contactEmail" placeholder="Votre email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="contactMessage" rows="5" placeholder="Votre message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Envoyer</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Admin -->
+    <section id="admin" class="py-5 bg-light-custom" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Espace Administrateur</h2>
+            <div class="mb-3">
+                <label for="adminPassword" class="form-label">Mot de passe administrateur</label>
+                <input type="password" class="form-control" id="adminPassword" placeholder="Entrez le mot de passe">
+            </div>
+            <div class="mb-3">
+                <button id="adminLogin" class="btn btn-primary">Connexion</button>
+            </div>
+            
+            <div id="adminPanel" style="display: none;">
+                <h3 class="mb-3">Réservations</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="reservationsTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nom</th>
+                                <th>Téléphone</th>
+                                <th>Date</th>
+                                <th>Heure</th>
+                                <th>Personnes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Les réservations seront ajoutées ici par JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <button id="exportExcel" class="btn btn-success mt-3">
+                    <i class="fas fa-file-excel me-2"></i>Exporter vers Excel
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Carte Google Maps -->
+    <div class="py-4">
+        <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15917.514039193!2d11.847573151318454!3d-4.777309594201287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a61a3d1f2b6e9c5%3A0x7b7a9f5e0a3b5b5d!2sPointe-Noire%2C%20Republic%20of%20Congo!5e0!3m2!1sen!2sus!4v1690312345678!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Lao Cuisto - Tous droits réservés</p>
+            <p class="mb-0">
+                <a href="#" class="text-white text-decoration-none me-2">Politique de confidentialité</a> | 
+                <a href="#" class="text-white text-decoration-none ms-2">Conditions d'utilisation</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bandeau Cookies -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-banner-content">
+            <div class="cookie-text">
+                <p class="mb-0">Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant votre navigation, vous acceptez l'utilisation des cookies. Pour en savoir plus, consultez notre <a href="#" class="text-primary">politique de cookies</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="rejectCookies" class="btn btn-outline-secondary">
+                    <i class="fas fa-times me-1"></i> Refuser
+                </button>
+                <button id="acceptAllCookies" class="btn btn-primary">
+                    <i class="fas fa-check me-1"></i> Accepter tout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
